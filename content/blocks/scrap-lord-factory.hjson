@@ -1,0 +1,33 @@
+type: UnitFactory
+name: scrap-lord factory 
+description: creates death from scrap.
+size: 2
+health: 250
+category: units
+alwaysUnlocked: true
+
+// З чого будується сам завод (10 міді)
+requirements: [
+  copper/10
+]
+
+// Дерево досліджень (відкритий одразу)
+research: {
+  parent: core-shard
+  requirements: [
+    copper/10
+  ]
+}
+
+// Список юнітів, яких він створює
+plans: [
+  {
+    unit: f-disbalans-mega-crawler
+    time: 60
+    requirements: [
+      scrap/1
+    ]
+  }
+]
+
+

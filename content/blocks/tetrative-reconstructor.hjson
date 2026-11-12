@@ -1,0 +1,17 @@
+consumes: {
+  power: 25
+  items: {
+    items: [
+    ]
+  }
+}
+upgrades: [
+  [scepter, reign]
+  [vela, corvus]
+  [arkyid, toxopid]
+  [antumbra, eclipse]
+  [quad, oct]
+  [sei, omura]
+  [aegires, navanax]
+  [f-disbalans-scrap-lord-t4, f-disbalans-scrap-lord-t5]
+]

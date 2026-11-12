@@ -1,0 +1,18 @@
+consumes: {
+  power: 6
+  items: {
+    items: [
+    ]
+  }
+}
+upgrades: [
+  [mace, fortress]
+  [pulsar, quasar]
+  [atrax, spiroct]
+  [horizon, zenith]
+  [poly, mega]
+  [minke, bryde]
+  [oxynoe, cyerce]
+  [f-disbalans-scrap-lord-t2, f-disbalans-scrap-lord-t3]
+]
+

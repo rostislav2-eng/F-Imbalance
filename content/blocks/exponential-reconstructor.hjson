@@ -1,0 +1,17 @@
+consumes: {
+  power: 13
+  items: {
+    items: [
+    ]
+  }
+}
+upgrades: [
+  [fortress, scepter]
+  [quasar, vela]
+  [spiroct, arkyid]
+  [zenith, antumbra]
+  [mega, quad]
+  [bryde, sei]
+  [cyerce, aegires]
+  [f-disbalans-scrap-lord-t3, f-disbalans-scrap-lord-t4]
+]

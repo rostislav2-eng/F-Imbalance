@@ -1,0 +1,36 @@
+type: OverdriveProjector
+name: scrap overdrive 
+description: accelerator +300%
+size: 2
+health: 300
+category: effect
+alwaysUnlocked: true
+
+speedBoost: 3.0
+speedBoostPhase: 1.0
+range: 160
+phaseRangeBoost: 80
+hasBoost: true
+useTime: 240
+
+color: 00F6FF
+phaseColor: ee82ee
+
+consumes: {
+  power: 0.0167
+  item: scrap
+}
+
+requirements: [
+  copper/15
+  scrap/10
+]
+
+research: {
+  parent: scrap-lord-factory
+  requirements: [
+    copper/15
+    scrap/10
+  ]
+}
+
