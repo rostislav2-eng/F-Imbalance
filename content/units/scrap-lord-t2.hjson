@@ -1,0 +1,145 @@
+type: hover
+name: Scrap Emperor
+description: Heavy shield-bearer armed with triple piercing railguns, shockers, and dual Scepter salvo cannons.
+speed: 1.4
+hitSize: 12
+health: 600
+armor: 5
+range: 500
+
+canBoost: true
+boostMultiplier: 1.5
+engineOffset: 7
+engineSize: 3
+
+alwaysUnlocked: true
+research: {
+  parent: mega-crawler
+  requirements: [
+    silicon/1
+  ]
+}
+
+abilities: [
+  {
+    type: ForceFieldAbility
+    radius: 65
+    regen: 3.34
+    max: 1500
+    cooldown: 300
+  }
+  {
+    type: ShieldRegenFieldAbility
+    amount: 100
+    max: 5000
+    reload: 60
+    range: 80
+  }
+]
+
+weapons: [
+  {
+    name: scrap-railgun
+    x: 0
+    y: -4.8
+    mirror: false
+    rotate: true
+    reload: 90
+    shootSound: railgun
+    bullet: {
+      type: RailBulletType
+      length: 496
+      damage: 1250
+      pierceDamageFactor: 0.5
+      pointEffectSpace: 20
+      hitEffect: massiveExplosion
+      pierceEffect: railHit
+      pointEffect: railTrail
+    }
+  }
+  {
+    name: rat
+    x: 3.5
+    y: -4
+    mirror: true
+    rotate: true
+    reload: 90
+    shootSound: railgun
+    bullet: {
+      type: RailBulletType
+      length: 496
+      damage: 1250
+      pierceDamageFactor: 0.5
+      pointEffectSpace: 20
+      hitEffect: massiveExplosion
+      pierceEffect: railHit
+      pointEffect: railTrail
+    }
+  }
+  {
+    name: scrap-reign-cannon
+    x: 8
+    y: 0.5
+    mirror: true
+    rotate: true
+    recoil: 2.5
+    reload: 30
+    shoot: {
+      shots: 2
+      shotDelay: 5
+    }
+    shootSound: bang
+    bullet: {
+      type: BasicBulletType
+      speed: 8
+      damage: 85
+      splashDamage: 55
+      splashDamageRadius: 28
+      lifetime: 40
+      width: 11
+      height: 18
+      frontColor: ffffff
+      backColor: feb380
+      hitEffect: flakExplosion
+      shootEffect: shootBig
+    }
+  }
+  {
+    name: scrap-shock
+    x: 4.5
+    y: 4
+    mirror: true
+    rotate: true
+    reload: 25
+    shootSound: spark
+    bullet: {
+      type: LightningBulletType
+      damage: 45
+      lightningLength: 25
+      lightningLengthRand: 8
+      lightningColor: f3e979
+      status: shocked
+      statusDuration: 30
+    }
+  }
+  {
+    name: ""
+    x: 0
+    y: 0
+    mirror: false
+    shootOnDeath: true
+    controllable: false
+    shootCone: 360
+    shake: 12
+    shootSound: explosionBig
+    bullet: {
+      type: ExplosionBulletType
+      splashDamage: 2500
+      splashDamageRadius: 180
+      hitEffect: reactorExplosion
+      despawnEffect: none
+      killShooter: false
+    }
+  }
+]
+

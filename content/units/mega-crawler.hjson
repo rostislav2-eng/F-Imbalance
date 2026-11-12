@@ -1,0 +1,109 @@
+type: hover
+name: Scrap Lord
+description: Flying terror with an internal reactor, triple railguns, and heavy homing missiles.
+speed: 1.5
+hitSize: 8
+health: 350
+armor: 2
+range: 500
+
+canBoost: true
+boostMultiplier: 1.5
+engineOffset: 5
+engineSize: 2.5
+
+alwaysUnlocked: true
+research: {
+  parent: dagger
+  requirements: [
+    scrap/1
+  ]
+}
+
+weapons: [
+  {
+    name: scrap-t1-railgun
+    x: 0
+    y: -3.5
+    mirror: false
+    rotate: true
+    recoil: 1.5
+    reload: 90
+    shootSound: railgun
+    bullet: {
+      type: RailBulletType
+      length: 496
+      damage: 1250
+      pierceDamageFactor: 0.5
+      pointEffectSpace: 20
+      hitEffect: massiveExplosion
+      pierceEffect: railHit
+      pointEffect: railTrail
+    }
+  }
+  {
+    name: scrap-t1-railgun
+    x: 2.5
+    y: -3
+    mirror: true
+    rotate: true
+    recoil: 1.5
+    reload: 90
+    shootSound: railgun
+    bullet: {
+      type: RailBulletType
+      length: 496
+      damage: 1250
+      pierceDamageFactor: 0.5
+      pointEffectSpace: 20
+      hitEffect: massiveExplosion
+      pierceEffect: railHit
+      pointEffect: railTrail
+    }
+  }
+  {
+    name: scrap-t1-missile
+    x: 4.5
+    y: 0.5
+    mirror: true
+    rotate: true
+    recoil: 1.5
+    reload: 150
+    shootSound: missileLarge
+    bullet: {
+      type: MissileBulletType
+      speed: 6.5
+      damage: 900
+      splashDamage: 2200
+      splashDamageRadius: 140
+      lifetime: 90
+      width: 16
+      height: 26
+      homingPower: 0.1
+      trailChance: 0.9
+      frontColor: ff9c5a
+      backColor: ec7458
+      hitEffect: reactorExplosion
+    }
+  }
+  {
+    name: ""
+    x: 0
+    y: 0
+    mirror: false
+    shootOnDeath: true
+    controllable: false
+    shootCone: 360
+    shake: 10
+    shootSound: explosionBig
+    bullet: {
+      type: ExplosionBulletType
+      splashDamage: 1200
+      splashDamageRadius: 150
+      hitEffect: reactorExplosion
+      despawnEffect: none
+      killShooter: false
+    }
+  }
+]
+

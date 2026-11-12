@@ -1,0 +1,191 @@
+type: hover
+name: Angel of Death
+description: Unstoppable colossus with triple-layered shields, homing plasma machine guns, and a fixed laser beam dealing 15 hits of 9999 damage.
+speed: 1.3
+hitSize: 36
+health: 55000
+armor: 55
+range: 800
+
+canBoost: true
+boostMultiplier: 1.6
+engineOffset: 20
+engineSize: 8
+
+alwaysUnlocked: true
+research: {
+  parent: scrap-lord-t4
+  requirements: [
+    scrap/1
+  ]
+}
+
+abilities: [
+  {
+    type: ForceFieldAbility
+    radius: 140
+    regen: 15
+    max: 40000
+    cooldown: 240
+  }
+  {
+    type: ShieldRegenFieldAbility
+    amount: 1500
+    max: 30000
+    reload: 60
+    range: 140
+  }
+  {
+    type: ShieldArcAbility
+    radius: 67
+    angle: 200
+    width: 14
+    max: 15000
+    regen: 10
+    cooldown: 240
+    y: -10
+  }
+  { 
+    type: RepairFieldAbility
+    amount: 250
+    reload: 100
+    range: 200
+  }
+]
+
+parts: [
+  {
+    type: RegionPart
+    name: f-disbalans-scrap-t5-wing
+    mirror: true
+    under: true
+    x: 16
+    y: -6
+    moveX: 12
+    moveY: -4
+    moveRot: -25
+    progress: warmup
+  }
+]
+
+weapons: [
+  {
+    name: scrap-t5-laser
+    x: 0
+    y: 14
+    shootY: 18
+    mirror: false
+    rotate: false
+    continuous: true
+    reload: 360
+    shake: 25
+    chargeSound: lasercharge
+    shootSound: laserblast
+    loopSound: beam
+    loopSoundVolume: 0.9
+    shootStatus: unmoving
+    shootStatusDuration: 300
+    shoot: {
+      firstShotDelay: 180
+    }
+    bullet: {
+      type: ContinuousLaserBulletType
+      damage: 9999
+      damageInterval: 12
+      length: 800
+      width: 24
+      lifetime: 180
+      shake: 15
+      hitEffect: massiveExplosion
+      drawSize: 1000
+      incendChance: 0.4
+      incendSpread: 10
+      incendAmount: 2
+      chargeEffect: greenLaserCharge
+      colors: [ec7458aa, ff9c5a, ffffff]
+    }
+  }
+  {
+    name: scrap-plasma-gun
+    x: 22
+    y: -3
+    shootY: 20
+    mirror: true
+    rotate: true
+    recoil: 1
+    reload: 90
+    shootSound: pew
+    ejectEffect: casing1
+    inaccuracy: 5
+    shoot: {
+      shots: 10
+      shotDelay: 2
+    }
+    bullet: {
+      type: BasicBulletType
+      speed: 4
+      damage: 1000
+      lifetime: 65
+      width: 7
+      height: 9
+      homingPower: 0.15
+      homingRange: 240
+      frontColor: ffffff
+      backColor: 00f6ff
+      trailColor: 00f6ff
+      trailWidth: 1.5
+      trailLength: 5
+      shootEffect: shootSmall
+      smokeEffect: shootSmallSmoke
+      hitEffect: hitBulletSmall
+    }
+  }
+  {
+    name: rat
+    x: 12
+    y: 10
+    mirror: true
+    rotate: true
+    rotateSpeed: 4.5
+    reload: 35
+    shootSound: laser
+    shoot: {
+      type: ShootSpread
+      shots: 3
+      spread: 12
+    }
+    bullet: {
+      type: LaserBulletType
+      damage: 85
+      length: 160
+      width: 12
+      lifetime: 16
+      colors: [ec7458aa, ff9c5a, ffffff]
+    }
+  }
+  {
+    name: ""
+    x: 0
+    y: 0
+    mirror: false
+    shootOnDeath: true
+    controllable: false
+    shootCone: 360
+    shake: 45
+    chargeSound: lasercharge2
+    shootSound: explosionBig
+    shoot: {
+      firstShotDelay: 90
+    }
+    bullet: {
+      type: ExplosionBulletType
+      splashDamage: 50000
+      splashDamageRadius: 450
+      chargeEffect: lancerLaserCharge
+      hitEffect: reactorExplosion
+      despawnEffect: none
+      killShooter: false
+    }
+  }
+]
+
