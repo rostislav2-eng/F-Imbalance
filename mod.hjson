@@ -1,0 +1,6 @@
+name: "f-disbalans"
+displayName: "F Disbalans"
+author: "лошка"
+description: "This is death on scrap andPre-release v0.9. Known issue: some unit weapon sounds are currently missing (will be fixed in v1.0). imbalance "
+version: "0.9"
+minGameVersion: "146"
