@@ -1,0 +1,310 @@
+type: hover
+name: Angel of Death
+description: Unstoppable colossus with triple-layered shields, homing plasma machine guns, and a fixed laser beam dealing 15 hits of 9999 damage.
+speed: 1.3
+hitSize: 36
+health: 55000
+armor: 55
+range: 800
+
+canBoost: true
+boostMultiplier: 1.6
+engineOffset: 20
+engineSize: 8
+
+alwaysUnlocked: true
+research: {
+  parent: scrap-lord-t4
+  requirements: [
+    scrap/1
+  ]
+}
+
+abilities: [
+  {
+    type: ForceFieldAbility
+    radius: 140
+    regen: 15
+    max: 40000
+    cooldown: 240
+  }
+  {
+    type: ShieldRegenFieldAbility
+    amount: 1500
+    max: 30000
+    reload: 60
+    range: 140
+  }
+  {
+    type: ShieldArcAbility
+    radius: 159
+    angle: 359.9
+    width: 14
+    max: 16000
+    regen: 15
+    cooldown: 240
+    chanceDeflect: 1
+    y: -10
+    colors: [ec7458aa]
+  }
+  { 
+    type: RepairFieldAbility
+    amount: 1000
+    reload: 120
+    range: 140
+  }
+]
+
+parts: [
+  {
+    type: RegionPart
+    name: f-disbalans-scrap-t5-wing
+    mirror: true
+    under: true
+    x: 16
+    y: -6
+    moveX: 12
+    moveY: -4
+    moveRot: -25
+    progress: warmup
+  }
+]
+
+weapons: [
+  {
+    name: scrap-t5-laser
+    x: 0
+    y: 14
+    shootY: 18
+    mirror: false
+    rotate: false
+    continuous: true
+    reload: 360
+    shake: 25
+    chargeSound: lasercharge
+    shootSound: laserblast
+    loopSound: beam
+    loopSoundVolume: 0.9
+    shootStatus: unmoving
+    shootStatusDuration: 300
+    shoot: {
+      firstShotDelay: 180
+    }
+    bullet: {
+      type: ContinuousLaserBulletType
+      damage: 9999
+      damageInterval: 11
+      length: 800
+      width: 24
+      lifetime: 240
+      shake: 15
+      hitEffect: massiveExplosion
+      drawSize: 1000
+      incendChance: 0.4
+      incendSpread: 10
+      incendAmount: 2
+      chargeEffect: greenLaserCharge
+      colors: [ec7458aa, ff9c5a, ffffff]
+    }
+  }
+  {
+    name: scrap-plasma-gun
+    x: 22
+    y: -3
+    shootY: 20
+    mirror: true
+    rotate: true
+    recoil: 1
+    reload: 90
+    shootSound: pew
+    ejectEffect: casing1
+    inaccuracy: 5
+    shoot: {
+      shots: 18
+      shotDelay: 1
+    }
+    bullet: {
+      type: BasicBulletType
+      speed: 4
+      damage: 1000
+      lifetime: 65
+      width: 7
+      height: 9
+      homingPower: 0.15
+      homingRange: 240
+      frontColor: ffffff
+      backColor: 00f6ff
+      trailColor: 00f6ff
+      trailWidth: 1.5
+      trailLength: 5
+      shootEffect: shootSmall
+      smokeEffect: shootSmallSmoke
+      hitEffect: hitBulletSmall
+    }
+  }
+  {
+    name: rat
+    x: 12
+    y: 10
+    mirror: true
+    rotate: true
+    rotateSpeed: 4.5
+    reload: 35
+    shootSound: laser
+    shoot: {
+      type: ShootSpread
+      shots: 5
+      spread: 12
+    }
+    bullet: {
+      type: LaserBulletType
+      damage: 800
+      length: 160
+      width: 12
+      lifetime: 16
+      colors: [ec7458aa, ff9c5a, ffffff]
+     }
+   } 
+   {
+    name: scrap-shoulder-laser
+    x: 18
+    y: -12
+    mirror: true
+    alternate: false
+    rotate: true
+    rotateSpeed: 10
+    baseRotation: 180
+    continuous: true
+    alwaysContinuous: true
+    reload: 1
+    
+    loopSound: torch
+    loopSoundVolume: 0.8
+    shootSound: flame
+    
+    collidesBullets: true
+    hittable: true
+    
+    bullet: {
+      type: ContinuousFlameBulletType
+      damage: 950
+      length: 230
+      width: 11
+      collidesBullets: true
+      hittable: true
+      pierce: true
+      pierceCap: 4
+      pierceArmor: true
+      status: melting
+      statusDuration: 180
+      colors: [eb87f555, f29ff9aa, f7c6fd, ffffff]
+      flareColor: f29ff9
+      flareWidth: 3.5
+      flareLength: 45
+    }
+  }
+  {
+    name: ""
+    x: 0
+    y: -18
+    mirror: false
+    rotate: false
+    baseRotation: 180
+    shootCone: 360
+    reload: 1500
+    shootSound: missile
+    bullet: {
+      type: BasicBulletType
+      speed: 2
+      lifetime: 15
+      damage: 0
+      collides: false
+      hittable: false
+      absorbable: false
+      width: 12
+      height: 12
+      frontColor: ffffff
+      backColor: ff2a2a
+      despawnEffect: flakExplosion
+      spawnUnit: f-disbalans-death-interceptor
+    }
+  }
+  {
+    name: ""
+    x: 0
+    y: 0
+    mirror: false
+    shootOnDeath: true
+    controllable: false
+    shootCone: 360
+    shootSound: lasercharge2
+    bullet: {
+      type: BasicBulletType
+      speed: 0
+      lifetime: 90
+      damage: 0
+      collides: false
+      hittable: false
+      absorbable: false
+      width: 0
+      height: 0
+      despawnHit: true
+      hitSound: explosionBig
+      hitShake: 45
+      despawnEffect: none
+      shootEffect: lancerLaserCharge
+      splashDamage: 50000
+      splashDamageRadius: 450
+      hitEffect: {
+        type: MultiEffect
+        effects: [
+          {
+            type: WaveEffect
+            lifetime: 45
+            sizeFrom: 0
+            sizeTo: 450
+            strokeFrom: 18
+            strokeTo: 0
+            colorFrom: ffffff
+            colorTo: ff5845
+          }
+          {
+            type: WaveEffect
+            lifetime: 60
+            sizeFrom: 20
+            sizeTo: 420
+            strokeFrom: 10
+            strokeTo: 0
+            colorFrom: ffa665
+            colorTo: ec745800
+          }
+          {
+            type: ParticleEffect
+            particles: 65
+            length: 450
+            lifetime: 90
+            interp: pow3Out
+            sizeInterp: pow2In
+            sizeFrom: 18
+            sizeTo: 0
+            colorFrom: ff9c5a
+            colorTo: 555555
+          }
+          {
+            type: ParticleEffect
+            particles: 40
+            length: 380
+            lifetime: 110
+            interp: pow2Out
+            sizeFrom: 24
+            sizeTo: 6
+            colorFrom: 333333aa
+            colorTo: 22222200
+          }
+          reactorExplosion
+        ]
+      }
+    }
+  }
+]
+
