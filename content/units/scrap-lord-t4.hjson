@@ -1,0 +1,143 @@
+
+type: hover
+name: Nothing But Scrap
+description: Combat titan equipped with dual 3000-damage railguns, Reign cannons, Scepter shockers, and an Aegires energy field.
+speed: 1.25
+hitSize: 24
+health: 12000
+armor: 15
+range: 600
+
+canBoost: true
+boostMultiplier: 1.5
+engineOffset: 14
+engineSize: 5
+
+alwaysUnlocked: true
+research: {
+  parent: scrap-lord-t3
+  requirements: [
+    scrap/1
+  ]
+}
+
+abilities: [
+  {
+    type: EnergyFieldAbility
+    damage: 45
+    reload: 40
+    range: 180
+    healPercent: 4
+    maxTargets: 100
+    effectRadius: 1.5
+    color: 84f491
+    status: shocked
+    statusDuration: 60
+  }
+  {
+    type: ForceFieldAbility
+    radius: 110
+    regen: 6.67
+    max: 6000
+    cooldown: 300
+  }
+]
+
+weapons: [
+  {
+    name: scrap-railgun-heavy
+    x: 6
+    y: -6.5
+    mirror: true
+    rotate: true
+    recoil: 3.5
+    reload: 80
+    shootSound: railgun
+    bullet: {
+      type: RailBulletType
+      length: 600
+      damage: 3000
+      pierceDamageFactor: 0.7
+      pointEffectSpace: 20
+      hitEffect: massiveExplosion
+      pierceEffect: railHit
+      pointEffect: railTrail
+    }
+  }
+  {
+    name: scrap-reign-cannon
+    x: 10
+    y: 2.5
+    mirror: true
+    rotate: true
+    recoil: 3
+    reload: 45
+    shoot: {
+      shots: 3
+      shotDelay: 4
+    }
+    shootSound: bang
+    bullet: {
+      type: BasicBulletType
+      speed: 9
+      damage: 140
+      splashDamage: 120
+      splashDamageRadius: 36
+      lifetime: 50
+      width: 14
+      height: 22
+      frontColor: ffffff
+      backColor: feb380
+      hitEffect: flakExplosionBig
+      fragBullets: 4
+      fragBullet: {
+        type: BasicBulletType
+        speed: 5
+        damage: 35
+        lifetime: 15
+      }
+    }
+  }
+  {
+    name: scrap-shock
+    x: 5
+    y: 6.5
+    mirror: true
+    rotate: true
+    reload: 25
+    shootSound: spark
+    shoot: {
+      shots: 5
+      shotDelay: 4
+    }
+    bullet: {
+      type: LightningBulletType
+      damage: 55
+      lightningLength: 28
+      lightningLengthRand: 8
+      lightningColor: f3e979
+      status: shocked
+      statusDuration: 30
+    }
+  }
+  {
+    name: ""
+    x: 0
+    y: 0
+    mirror: false
+    shootOnDeath: true
+    controllable: false
+    shootCone: 360
+    shake: 20
+    shootSound: explosionBig
+    bullet: {
+      type: ExplosionBulletType
+      splashDamage: 15000
+      splashDamageRadius: 320
+      hitEffect: reactorExplosion
+      despawnEffect: none
+      killShooter: false
+    }
+  }
+]
+
